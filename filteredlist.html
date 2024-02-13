@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filtered List with Images</title>
+    <style>
+        /* Add some basic styling */
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 10px;
+            display: inline-block;
+            text-align: center;
+        }
+
+        img {
+            width: 100px; /* Adjust the size as needed */
+            height: 100px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+
+<input type="text" id="filterInput" placeholder="Filter List">
+
+<ul id="myList">
+    <li><img src="image1.jpg" alt="Image 1"><br>Item 1</li>
+    <li><img src="image2.jpg" alt="Image 2"><br>Item 2</li>
+    <li><img src="image3.jpg" alt="Image 3"><br>Item 3</li>
+    <!-- Add more items as needed -->
+</ul>
+
+<script>
+    // JavaScript for filtering the list
+    document.getElementById("filterInput").addEventListener("input", function() {
+        const filterValue = this.value.toLowerCase();
+        const listItems = document.getElementById("myList").getElementsByTagName("li");
+
+        for (let i = 0; i < listItems.length; i++) {
+            const text = listItems[i].innerText.toLowerCase();
+            listItems[i].style.display = text.includes(filterValue) ? "inline-block" : "none";
+        }
+    });
+</script>
+
+</body>
+</html>
