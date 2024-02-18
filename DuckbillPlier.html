@@ -411,6 +411,27 @@
     </footer>
 
     <script>
+        const Key = JSON.parse(localStorage.getItem('Login'));
+        const session = JSON.parse(sessionStorage.getItem('currentSess'));
+
+              
+        if(localStorage.getItem('Login') === null){
+          alert("Please Login");
+          location.href = "./index.html";
+          }
+          else if(Key.password != "EEC2024")
+          {
+          alert("Fake password ");
+          location.href = "./index.html";
+          }
+          else if(sessionStorage.getItem('currentSess') != 1){
+          alert("Please Login");
+          location.href = "./index.html";
+          }
+          else{
+
+          }
+
       $(document).ready(function () {
         // Add smooth scrolling to all links in navbar + footer link
         $(".navbar a, footer a[href='#myPage']").on('click', function (event) {

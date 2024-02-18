@@ -42,6 +42,7 @@ loginButton.addEventListener("click", (e) => {
         window.localStorage.setItem('Login', 
          JSON.stringify({password: password}) );
         alert("You have successfully logged in.");
+        window,sessionStorage.setItem("currentSess", 1)
         location.href = "./Home.html";
     } else {
         loginErrorMsg.style.opacity = 1;
